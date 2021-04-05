@@ -1,0 +1,449 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coin Careers</title>
+    <style>
+        html {
+            background-color: #003566;
+            color: #ffc300;
+            font-family: sans-serif;
+        }
+
+        body {
+            padding: 1rem;
+        }
+
+        main {
+            max-width: 30rem;
+            margin: 0 auto;
+        }
+
+        h1, h2, footer {
+            text-align: center;
+        }
+
+        footer {
+            margin-top: 4rem
+        }
+
+        main {
+            margin-top: 3rem;
+        }
+
+        table {
+            text-align: left;
+            width: 100%;
+        }
+
+        table {
+            position: relative;
+        }
+
+        th, td {
+            padding: 0.5em 0;
+        }
+
+        .coin {
+            display: flex;
+            align-items: center;
+        }
+
+        .coin__logo {
+            margin-right: 1em;
+        }
+
+        svg {
+            color: #ffc300;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Coin Careers</h1>
+        <h2>Top crypto coins that hire</h2>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Coin</th>
+                    <th>Careers</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </main>
+    <footer>
+        <p>
+            Coins data was collected with
+            <a href="https://coinmarketcap.com/api/" target="_blank">Crypto API</a>
+            by <a href="https://coinmarketcap.com/" target="_blank">CoinMarketCap</a>.
+        </p>
+        <p>Careers pages were collected manually.</p>
+    </footer>
+    <script>
+        const coinsData = [
+            {
+                name: "Ethereum",
+                symbol: "ETH",
+                logo: "1027.png",
+                careers_page: "https://ethereum.org/en/about/#open-jobs"
+            },
+            {
+                name: "Binance Coin",
+                symbol: "BNB",
+                logo: "1839.png",
+                careers_page: "https://www.binance.com/en/career"
+            },
+            {
+                name: "Polkadot",
+                symbol: "DOT",
+                logo: "6636.png",
+                careers_page: "https://polkadot.network/jobs/"
+            },
+            {
+                name: "Uniswap",
+                symbol: "UNI",
+                logo: "7083.png",
+                careers_page: "https://uniswap.org/about#jobs"
+            },
+            {
+                name: "USD Coin",
+                symbol: "USDC",
+                logo: "3408.png",
+                careers_page: "https://www.centre.io/careers"
+            },
+            {
+                name: "Stellar",
+                symbol: "XLM",
+                logo: "512.png",
+                careers_page: "https://www.stellar.org/foundation/careers"
+            },
+            {
+                name: "BitTorrent",
+                symbol: "BTT",
+                logo: "3718.png",
+                careers_page: "https://www.bittorrent.com/company/jobs/"
+            },
+            {
+                name: "Terra",
+                symbol: "LUNA",
+                logo: "4172.png",
+                careers_page: "https://terra.breezy.hr/"
+            },
+            {
+                name: "Solana",
+                symbol: "SOL",
+                logo: "5426.png",
+                careers_page: "https://jobs.solana.com/"
+            },
+            {
+                name: "EOS",
+                symbol: "EOS",
+                logo: "1765.png",
+                careers_page: "https://block.one/careers/"
+            },
+            {
+                name: "Crypto.com Coin",
+                symbol: "CRO",
+                logo: "3635.png",
+                careers_page: "https://crypto.com/careers"
+            },
+            {
+                name: "Aave",
+                symbol: "AAVE",
+                logo: "7278.png",
+                careers_page: "https://aave.com/careers"
+            },
+            {
+                name: "Binance USD",
+                symbol: "BUSD",
+                logo: "4687.png",
+                careers_page: "https://www.binance.com/en/career"
+            },
+            {
+                name: "Kusama",
+                symbol: "KSM",
+                logo: "5034.png",
+                careers_page: "https://web3.bamboohr.com/jobs/"
+            },
+            {
+                name: "Neo",
+                symbol: "NEO",
+                logo: "1376.png",
+                careers_page: "https://neo.org/joinus"
+            },
+            {
+                name: "Avalanche",
+                symbol: "AVAX",
+                logo: "5805.png",
+                careers_page: "https://www.avalabs.org/careers"
+            },
+            {
+                name: "NEM",
+                symbol: "XEM",
+                logo: "873.png",
+                careers_page: "https://nem.io/join-us/"
+            },
+            {
+                name: "Algorand",
+                symbol: "ALGO",
+                logo: "4030.png",
+                careers_page: "https://algorand.foundation/about-us/careers"
+            },
+            {
+                name: "Dai",
+                symbol: "DAI",
+                logo: "4943.png",
+                careers_page: "https://makerdao.com/en/careers"
+            },
+            {
+                name: "Elrond",
+                symbol: "EGLD",
+                logo: "6892.png",
+                careers_page: "https://elrond.com/team/#careers"
+            },
+            {
+                name: "Chiliz",
+                symbol: "CHZ",
+                logo: "4066.png",
+                careers_page: "https://www.chiliz.com/en/careers/"
+            },
+            {
+                name: "Compound",
+                symbol: "COMP",
+                logo: "5692.png",
+                careers_page: "https://compound.finance/about#jobs"
+            },
+            {
+                name: "Dash",
+                symbol: "DASH",
+                logo: "131.png",
+                careers_page: "https://www.dash.org/dcg/jobs/"
+            },
+            {
+                name: "Hedera Hashgraph",
+                symbol: "HBAR",
+                logo: "4642.png",
+                careers_page: "https://hedera.com/work"
+            },
+            {
+                name: "Maker",
+                symbol: "MKR",
+                logo: "1518.png",
+                careers_page: "https://makerdao.com/en/careers"
+            },
+            {
+                name: "The Graph",
+                symbol: "GRT",
+                logo: "6719.png",
+                careers_page: "https://thegraph.com/jobs/"
+            },
+            {
+                name: "Enjin Coin",
+                symbol: "ENJ",
+                logo: "2130.png",
+                careers_page: "https://enjin.io/about/careers"
+            },
+            {
+                name: "NEAR Protocol",
+                symbol: "NEAR",
+                logo: "6535.png",
+                careers_page: "https://near.org/careers/"
+            },
+            {
+                name: "UNUS SED LEO",
+                symbol: "LEO",
+                logo: "3957.png",
+                careers_page: "https://bitfinex.recruitee.com/"
+            },
+            {
+                name: "Polygon",
+                symbol: "MATIC",
+                logo: "3890.png",
+                careers_page: "https://matic.network/careers"
+            },
+            {
+                name: "Basic Attention Token",
+                symbol: "BAT",
+                logo: "1697.png",
+                careers_page: "https://brave.com/careers/"
+            },
+            {
+                name: "Pundi X[old]",
+                symbol: "NPXS",
+                logo: "2603.png",
+                careers_page: "https://pundix.com/join"
+            },
+            {
+                name: "TerraUSD",
+                symbol: "UST",
+                logo: "7129.png",
+                careers_page: "https://terra.breezy.hr/"
+            },
+            {
+                name: "UMA",
+                symbol: "UMA",
+                logo: "5617.png",
+                careers_page: "https://angel.co/company/uma-project/jobs"
+            },
+            {
+                name: "Nexo",
+                symbol: "NEXO",
+                logo: "2694.png",
+                careers_page: "https://nexo.breezy.hr/"
+            },
+            {
+                name: "0x",
+                symbol: "ZRX",
+                logo: "1896.png",
+                careers_page: "https://0x.org/about/jobs"
+            },
+            {
+                name: "Siacoin",
+                symbol: "SC",
+                logo: "1042.png",
+                careers_page: "https://jobs.lever.co/nebulous"
+            },
+            {
+                name: "Ontology",
+                symbol: "ONT",
+                logo: "2566.png",
+                careers_page: "https://ont.io/join"
+            },
+            {
+                name: "Celsius",
+                symbol: "CEL",
+                logo: "2700.png",
+                careers_page: "https://celsius.network/careers/"
+            },
+            {
+                name: "Helium",
+                symbol: "HNT",
+                logo: "5665.png",
+                careers_page: "https://www.helium.com/careers"
+            },
+            {
+                name: "Ankr",
+                symbol: "ANKR",
+                logo: "3783.png",
+                careers_page: "https://www.ankr.com/about-careers"
+            },
+            {
+                name: "Reserve Rights",
+                symbol: "RSR",
+                logo: "3964.png",
+                careers_page: "https://reserve.org/about#join-us"
+            },
+            {
+                name: "SwissBorg",
+                symbol: "CHSB",
+                logo: "2499.png",
+                careers_page: "https://jobs.lever.co/swissborg"
+            },
+            {
+                name: "WazirX",
+                symbol: "WRX",
+                logo: "5161.png",
+                careers_page: "https://careers.wazirx.com/jobs"
+            },
+            {
+                name: "OMG Network",
+                symbol: "OMG",
+                logo: "1808.png",
+                careers_page: "https://omg-network.breezy.hr/"
+            },
+            {
+                name: "Revain",
+                symbol: "REV",
+                logo: "2135.png",
+                careers_page: "null"
+            },
+            {
+                name: "Qtum",
+                symbol: "QTUM",
+                logo: "1684.png",
+                careers_page: "https://qtum.org/en/about/recruitment"
+            },
+            {
+                name: "Flow",
+                symbol: "FLOW",
+                logo: "4558.png",
+                careers_page: "https://www.onflow.org/careers"
+            },
+            {
+                name: "Fantom",
+                symbol: "FTM",
+                logo: "3513.png",
+                careers_page: "https://fantom.foundation/careers/"
+            },
+            {
+                name: "OKB",
+                symbol: "OKB",
+                logo: "3897.png",
+                careers_page: "https://www.linkedin.com/company/okex/jobs"
+            },
+            {
+                name: "Paxos Standard",
+                symbol: "PAX",
+                logo: "3330.png",
+                careers_page: "https://www.paxos.com/careers/"
+            },
+            {
+                name: "Celo",
+                symbol: "CELO",
+                logo: "5567.png",
+                careers_page: "https://celo.org/jobs"
+            },
+            {
+                name: "Voyager Token",
+                symbol: "VGX",
+                logo: "1817.png",
+                careers_page: "https://www.investvoyager.com/careers/"
+            },
+            {
+                name: "IOST",
+                symbol: "IOST",
+                logo: "2405.png",
+                careers_page: "https://angel.co/company/ios-foundation-binance-iost/jobs"
+            },
+            {
+                name: "Nervos Network",
+                symbol: "CKB",
+                logo: "4948.png",
+                careers_page: "https://www.nervos.org/about/join-us/"
+            }
+        ];
+    </script>
+    <script>
+        const logoBaseUrl = 'https://s2.coinmarketcap.com/static/img/coins/64x64/';
+        const tBody = document.querySelector('tbody')
+        for (const coin of coinsData) {
+            const tr = document.createElement('tr');
+            const nameTd = document.createElement('td');
+            const careersTd = document.createElement('td');
+            nameTd.innerHTML = `
+                <div class="coin">
+                    <img src="${logoBaseUrl}${coin.logo}" class="coin__logo" />
+                    <span>
+                        <strong>${coin.name}</strong>
+                        <br />
+                        <small>${coin.symbol}</small>
+                    </span>
+                </div>
+            `
+            tr.appendChild(nameTd);
+            careersTd.innerHTML = `
+                <a href="${coin.careers_page}" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+            `
+            tr.appendChild(careersTd);
+            tBody.appendChild(tr);
+        }
+    </script>
+
+</body>
+</html>
